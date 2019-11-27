@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {fetchTvShow} from "./store/actions";
 import EpisodeCard from "../../components/episode-card";
 import episodeCardStyles from '../../components/episode-card/EpisodeCard.module.css';
@@ -7,7 +8,7 @@ import ShowPageContainer from "../../components/containers/show-page-container";
 
 const SHOW_NAME = 'the-powerpuff-girls'; // stubbed value
 
-function ShowPage({fetchTvShow, showData, isLoading}) {
+function ShowPage({ fetchTvShow, showData, isLoading }) {
     useEffect(() => {
         if (showData.id === null) {
             fetchTvShow({
@@ -38,6 +39,12 @@ function ShowPage({fetchTvShow, showData, isLoading}) {
         </div>
     )
 }
+
+ShowPage.propTypes = {
+    fetchTvShow: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    showData: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
     isLoading: state.show.isLoading,

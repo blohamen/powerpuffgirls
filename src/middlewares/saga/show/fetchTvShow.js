@@ -3,6 +3,11 @@ import fetchData from "../fetchData";
 import config from "../../../config/config";
 import {fetchTvShowSuccess} from "../../../routes/show/store/actions";
 
+/**
+ * Should fetch data about show and fetch show episodes
+ * @param {object} payload
+ * @returns {void}
+ */
 export default function* fetchTvShow({ payload }) {
     try {
         const {showName} = payload;

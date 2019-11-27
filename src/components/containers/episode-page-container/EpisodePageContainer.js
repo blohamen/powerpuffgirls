@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './EpisodePageContainer.module.css';
 import excludeHtmlTags from "../../../helpers/excludeHtmlTags";
 
@@ -22,3 +23,12 @@ export default function EpisodePageContainer({name, summary, image, season, numb
         </div>
     )
 }
+
+EpisodePageContainer.propTypes = {
+    name: PropTypes.string.isRequired,
+    summary: PropTypes.string,
+    image: PropTypes.object,
+    season: PropTypes.number,
+    number: PropTypes.number,
+    runtime: PropTypes.number
+};
