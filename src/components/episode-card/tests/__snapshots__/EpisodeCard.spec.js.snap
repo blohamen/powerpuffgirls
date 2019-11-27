@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Episode card component should renders correctly only with name 1`] = `
+<Link
+  to="/episode/1"
+>
+  <div
+    className="episodeCard"
+  >
+    <span>
+      Test
+    </span>
+  </div>
+</Link>
+`;
+
+exports[`Episode card component should renders correctly with image 1`] = `
+<Link
+  to="/episode/1"
+>
+  <div
+    className="episodeCard"
+  >
+    <img
+      className="episodeCardImage"
+      src="someUrl"
+    />
+  </div>
+</Link>
+`;
