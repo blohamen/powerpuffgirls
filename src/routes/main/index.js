@@ -1,9 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {fetchTvShow} from "./store/actions";
 
-export default function MainPage() {
+function MainPage({fetchTvShow}) {
     return (
         <div>
             Main page
+            <button onClick={() => fetchTvShow()}>Fetch</button>
         </div>
     )
 }
+
+const mapDispatchToProps = {fetchTvShow};
+
+export default connect(
+    null,
+    mapDispatchToProps,
+)(MainPage)
