@@ -3,17 +3,22 @@ import {FETCH_TV_SHOW, FETCH_TV_SHOW_SUCCESS} from "./actions";
 
 const initialState = {
     isLoading: false,
-    payload: null,
+    showData: {
+        id: null,
+        name: null,
+        episodes: [],
+    },
 };
 
 export default handleActions({
-    [FETCH_TV_SHOW]: (state, { payload }) => ({
+    [FETCH_TV_SHOW]: state => ({
         ...state,
         isLoading: true,
     }),
     [FETCH_TV_SHOW_SUCCESS]: (state, { payload }) => ({
         ...state,
         isLoading: false,
+        showData: payload,
     })
 },
     initialState

@@ -7,8 +7,13 @@ export default function* fetchTvShow({ payload }) {
     try {
         const {showName} = payload;
         const showUrl = `${config.tvApiUrl}/singlesearch/shows?q=${showName}`;
-        const response =  yield call(fetchData, showUrl);
-        yield put(fetchTvShowSuccess(response));
+        const tvShow =  yield call(fetchData, showUrl);
+        const showEpisodesUrl = `${config.tvApiUrl}/shows/${tvShow.id}/episodes`;
+        const showEpisodes = yield call(fetchData, showEpisodesUrl);
+        yield put(fetchTvShowSuccess({
+            ...tvShow,
+            episodes: showEpisodes,
+        }));
     }
     catch (e) {
         console.warn(e);

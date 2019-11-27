@@ -9,7 +9,7 @@ function App() {
         <Route exact path="/">
             <ShowPage />
         </Route>
-       <Route path="/:id">
+       <Route path="/episode/:id">
            <EpisodePage />
        </Route>
      </Switch>
