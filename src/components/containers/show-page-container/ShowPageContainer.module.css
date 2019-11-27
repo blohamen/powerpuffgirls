@@ -1,0 +1,22 @@
+.pageContainer {
+    padding: 20px 40px 0 40px;
+}
+
+.contentContainer {
+    display: flex;
+}
+
+.episodesContainerContent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logoContainer {
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+ .contentContainer {
+     display: block;
+ }
+}

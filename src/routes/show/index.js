@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchTvShow} from "./store/actions";
-import {excludeHtmlTags} from "./service";
 import EpisodeCard from "../../components/episode-card";
+import episodeCardStyles from '../../components/episode-card/EpisodeCard.module.css';
+import ShowPageContainer from "../../components/containers/show-page-container";
 
-const SHOW_NAME = 'the-powerpuff-girls';
+const SHOW_NAME = 'the-powerpuff-girls'; // stubbed value
 
 function ShowPage({fetchTvShow, showData, isLoading}) {
     useEffect(() => {
@@ -16,30 +17,25 @@ function ShowPage({fetchTvShow, showData, isLoading}) {
     }, [fetchTvShow, showData.id]);
 
     const renderEpisodeCard = (episode, index) => (
-        <EpisodeCard key={index} {...episode}/>
+        <div key={index} className={episodeCardStyles.episodeCardContainerMargin}>
+            <EpisodeCard {...episode}/>
+        </div>
     );
 
-    const parsedSummary = excludeHtmlTags(showData.summary || '');
+    const renderLoader = () => (
+        <div>Show is loading</div>
+    );
+
     return (
-        <>
+        <div>
             {(isLoading || !showData.id)
-                ? <div>Loading page</div>
-                : (<div>
-                        <div className="show-name">
-                            Show name: {showData.name}
-                        </div>
-                        <div className="show-summary">
-                            Show summary: {parsedSummary}
-                        </div>
-                        <div className="show-image">
-                            <img src={showData.image.medium} alt={'show image'} />
-                        </div>
-                        <div className="show-episodes">
-                            {showData.episodes.map(renderEpisodeCard)}
-                        </div>
-                    </div>)
+                ? renderLoader()
+                : <ShowPageContainer
+                    renderEpisodeCard={renderEpisodeCard}
+                    {...showData}
+                />
             }
-        </>
+        </div>
     )
 }
 
