@@ -1,5 +1,11 @@
-#The Powerpuff Girls Test Task
+##The Powerpuff Girls Test Task
 
+## Initial setup
+Firstly, you need to install dependency. <br />
+Run next command.
+### `yarn`  
+
+After that you can run other scripts.
 ## Available Scripts
 
 In the project directory, you can run:
