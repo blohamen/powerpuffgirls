@@ -1,13 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import MainPage from "../../routes/main";
+import ShowPage from "../../routes/show";
 import EpisodePage from "../../routes/episode";
 
 function App() {
   return (
      <Switch>
         <Route exact path="/">
-            <MainPage />
+            <ShowPage />
         </Route>
        <Route path="/:id">
            <EpisodePage />
